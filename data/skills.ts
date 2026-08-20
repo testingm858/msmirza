@@ -1,0 +1,85 @@
+import type { SkillCategory } from "@/types";
+
+export const skillCategories: SkillCategory[] = [
+  {
+    id: "qhse",
+    name: "QHSE & Management Systems",
+    icon: "shield-check",
+    color: "emerald",
+    skills: [
+      { name: "ISO 9001:2015 (QMS) Lead Auditing", level: 96 },
+      { name: "ISO 45001:2018 (OH&S) Lead Auditing", level: 95 },
+      { name: "ISO 14001 Environmental Management", level: 90 },
+      { name: "Integrated Management Systems (IMS)", level: 92 },
+      { name: "GAP Analysis & Continual Improvement", level: 94 },
+      { name: "Regulatory Compliance (OSHAD, ZonesCorp, EAD)", level: 90 },
+    ],
+  },
+  {
+    id: "data-ai",
+    name: "Data & AI",
+    icon: "brain-circuit",
+    color: "emerald",
+    skills: [
+      { name: "Python (Pandas, NumPy)", level: 82 },
+      { name: "Data Cleaning & EDA", level: 88 },
+      { name: "Data Visualization (Matplotlib, Plotly, Seaborn)", level: 84 },
+      { name: "Applied AI & Prompt Engineering", level: 80 },
+      { name: "R Programming", level: 70 },
+      { name: "SQL", level: 78 },
+    ],
+  },
+  {
+    id: "programming",
+    name: "Programming & Web",
+    icon: "code-2",
+    color: "emerald",
+    skills: [
+      { name: "PHP / MySQL", level: 85 },
+      { name: "HTML / CSS / JavaScript", level: 82 },
+      { name: "WordPress / Joomla / Zencart / osCommerce", level: 88 },
+      { name: "jQuery / Bootstrap", level: 78 },
+      { name: "C / C++", level: 65 },
+      { name: "VB Scripting", level: 70 },
+    ],
+  },
+  {
+    id: "network-security",
+    name: "Networking & Cybersecurity",
+    icon: "network",
+    color: "emerald",
+    skills: [
+      { name: "TCP/IP, Routing & Subnetting", level: 85 },
+      { name: "Cisco Switches & Routers", level: 80 },
+      { name: "Windows Server, Active Directory, Exchange", level: 78 },
+      { name: "DHCP / DNS Administration", level: 82 },
+      { name: "Network Security (IPSec, Ethical Hacking Fundamentals)", level: 72 },
+    ],
+  },
+  {
+    id: "tools",
+    name: "Tools & Platforms",
+    icon: "wrench",
+    color: "emerald",
+    skills: [
+      { name: "Kaggle Notebooks & Datasets", level: 90 },
+      { name: "Jupyter", level: 85 },
+      { name: "Adobe Dreamweaver / Photoshop / Fireworks", level: 70 },
+      { name: "XAMPP / Apache / IIS", level: 80 },
+      { name: "MS Access / MySQL / SQL Server", level: 78 },
+    ],
+  },
+  {
+    id: "soft-skills",
+    name: "Management & Soft Skills",
+    icon: "users",
+    color: "emerald",
+    skills: [
+      { name: "Cross-functional Leadership", level: 92 },
+      { name: "Audit Facilitation & Training Coordination", level: 90 },
+      { name: "Technical Writing & Documentation", level: 88 },
+      { name: "Stakeholder Communication", level: 90 },
+      { name: "Process Improvement", level: 91 },
+    ],
+  },
+];

@@ -1,0 +1,135 @@
+import type { Education, Certification } from "@/types";
+
+export const education: Education[] = [
+  {
+    id: "mcs",
+    degree: "MCS — Master of Computer Sciences",
+    institution: "Virtual University of Pakistan (VU Lahore)",
+    location: "Lahore, Pakistan",
+    period: "Postgraduate",
+    description:
+      "Graduate-level study in computer science, building on an earlier bachelor's degree and diploma in the same field.",
+    icon: "graduation",
+  },
+  {
+    id: "pgd",
+    degree: "PGD — Post Graduate Diploma in Computer Sciences",
+    institution: "Govt. MAO College Lahore",
+    location: "Lahore, Pakistan",
+    period: "Postgraduate Diploma",
+    description:
+      "Postgraduate diploma deepening core computer science foundations ahead of the Master's program.",
+    icon: "diploma",
+  },
+  {
+    id: "bcs",
+    degree: "BCS — Bachelor of Computer Sciences",
+    institution: "Allama Iqbal Open University (AIOU)",
+    location: "Islamabad, Pakistan",
+    period: "Undergraduate",
+    description: "Undergraduate degree covering programming, systems and computer science fundamentals.",
+    icon: "university",
+  },
+  {
+    id: "inter",
+    degree: "Intermediate (FA) — Science Group",
+    institution: "BISE — Board of Intermediate & Secondary Education",
+    location: "Gujranwala, Pakistan",
+    period: "Higher Secondary",
+    description: "Higher secondary education in the science group, forming the foundation for further studies.",
+    icon: "books",
+  },
+  {
+    id: "matric",
+    degree: "Matriculation — Science Group",
+    institution: "BISE — Board of Intermediate & Secondary Education",
+    location: "Gujranwala, Pakistan",
+    period: "Secondary",
+    description: "Secondary school certification in the science group.",
+    icon: "books",
+  },
+];
+
+export const certifications: Certification[] = [
+  {
+    id: "irca-9001",
+    name: "IRCA Certified ISO 9001:2015 Lead Auditor",
+    issuer: "IRCA (International Register of Certificated Auditors)",
+    issueDate: "09 Oct 2018",
+    expiryDate: null,
+    credentialId: "EDU/QMS/LA/18/03213",
+    credentialUrl: "https://www.credly.com/users/muhammad-shahid-mirza/badges/credly",
+    status: "active",
+    icon: "badge-check",
+  },
+  {
+    id: "irca-45001",
+    name: "IRCA Certified ISO 45001:2018 Lead Auditor",
+    issuer: "IRCA (International Register of Certificated Auditors)",
+    issueDate: "06 Jul 2018",
+    expiryDate: null,
+    credentialId: "EDU/OHSMS/LA/18/02346",
+    credentialUrl: "https://www.credly.com/users/muhammad-shahid-mirza/badges/credly",
+    status: "active",
+    icon: "shield-check",
+  },
+  {
+    id: "google-data-analytics",
+    name: "Google Data Analytics Professional Certificate (8 Courses)",
+    issuer: "Coursera / Google",
+    issueDate: "10 Nov 2022",
+    expiryDate: null,
+    credentialId: null,
+    credentialUrl: "https://www.coursera.org/my-learning?myLearningTab=CERTIFICATES",
+    status: "active",
+    icon: "bar-chart",
+  },
+  {
+    id: "itil",
+    name: "ITIL Foundation — IT Infrastructure Library",
+    issuer: "AXELOS",
+    issueDate: "16 Jul 2015",
+    expiryDate: null,
+    credentialId: "03604736-01-24TT",
+    credentialUrl: null,
+    status: "active",
+    icon: "layers",
+  },
+  {
+    id: "mta-networking",
+    name: "Microsoft Technology Associate — Networking Fundamentals",
+    issuer: "Microsoft",
+    issueDate: "28 Apr 2015",
+    expiryDate: null,
+    credentialId: "F282-2026",
+    credentialUrl: null,
+    status: "active",
+    icon: "network",
+  },
+  {
+    id: "ceh",
+    name: "Certified Ethical Hacker (CEH)",
+    issuer: "EC-Council",
+    issueDate: "29 Apr 2015",
+    expiryDate: "28 Apr 2018",
+    credentialId: "ECC92035607006",
+    credentialUrl: null,
+    status: "expired",
+    icon: "shield-alert",
+  },
+];
+
+export const trainings = [
+  {
+    title: "Auditor / Lead Auditor Training — Assessment & Implementation, ISO 9001:2008 QMS",
+    provider: "PIQC, Lahore, Pakistan",
+  },
+  {
+    title: "CCNA Practical — Hub, Switch & Router Configuration (Preparation Course)",
+    provider: "CASTECH, Gulberg, Lahore, Pakistan",
+  },
+  {
+    title: "Professional VB Programming — Software Development Course",
+    provider: "Peak Solution, Lahore, Pakistan",
+  },
+];
