@@ -6,13 +6,7 @@ import { galleryItems } from "@/data/achievements";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { RevealGroup, revealItem } from "@/components/ui/reveal";
 import { Icon } from "@/components/ui/icon";
-
-const categoryIcon: Record<string, string> = {
-  Certificates: "badge-check",
-  "Data Visualization": "line-chart",
-  "Web Projects": "code-2",
-  Industrial: "factory",
-};
+import { GalleryArt } from "@/components/ui/gallery-art";
 
 export function Gallery() {
   const categories = useMemo(
@@ -30,7 +24,7 @@ export function Gallery() {
         <SectionHeading
           eyebrow="Gallery"
           title="Visual Portfolio"
-          subtitle="Certificates, data visualizations and web work — placeholders ready to be swapped for real screenshots."
+          subtitle="Data visualizations, web work and industrial photography — placeholders ready to be swapped for real screenshots."
         />
 
         <div className="mb-10 flex flex-wrap justify-center gap-2">
@@ -59,9 +53,9 @@ export function Gallery() {
             >
               <div className="relative flex h-48 items-center justify-center overflow-hidden bg-gradient-to-br from-accent/15 via-background-alt to-accent-2/10">
                 <div className="absolute inset-0 grid-pattern opacity-30" />
-                <Icon
-                  name={categoryIcon[item.category] ?? "sparkles"}
-                  className="relative h-10 w-10 text-accent/50 transition-transform duration-500 group-hover:scale-125"
+                <GalleryArt
+                  category={item.category}
+                  className="absolute inset-0 opacity-25 transition-transform duration-500 group-hover:scale-110"
                 />
                 <span className="absolute inset-0 flex items-center justify-center bg-background/0 text-background/0 backdrop-blur-0 transition-all duration-300 group-hover:bg-background/60 group-hover:text-foreground group-hover:backdrop-blur-sm">
                   <Icon name="zoom-in" className="h-6 w-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -94,8 +88,8 @@ export function Gallery() {
               onClick={(e) => e.stopPropagation()}
               className="glass-strong w-full max-w-lg rounded-2xl border border-card-border p-6"
             >
-              <div className="mb-4 flex h-48 items-center justify-center rounded-xl bg-gradient-to-br from-accent/20 to-accent-2/10">
-                <Icon name={categoryIcon[active.category] ?? "sparkles"} className="h-14 w-14 text-accent/60" />
+              <div className="relative mb-4 h-48 overflow-hidden rounded-xl bg-gradient-to-br from-accent/20 to-accent-2/10">
+                <GalleryArt category={active.category} className="absolute inset-0 opacity-25" />
               </div>
               <span className="text-xs font-medium uppercase tracking-wide text-accent">{active.category}</span>
               <h3 className="mt-1 font-display text-lg font-semibold text-foreground">{active.title}</h3>

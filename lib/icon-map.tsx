@@ -56,6 +56,11 @@ import {
   ZoomIn,
   Sparkles,
   ScrollText,
+  HardHat,
+  ChevronLeft,
+  ChevronRight,
+  Eye,
+  FileCheck2,
   type LucideIcon,
 } from "lucide-react";
 import {
@@ -144,6 +149,11 @@ export const iconMap: Record<string, IconComponent> = {
   filter: Filter,
   "zoom-in": ZoomIn,
   sparkles: Sparkles,
+  "hard-hat": HardHat,
+  "chevron-left": ChevronLeft,
+  "chevron-right": ChevronRight,
+  eye: Eye,
+  "file-check": FileCheck2,
 };
 
 export function getIcon(name: string): IconComponent {

@@ -30,6 +30,7 @@ export const personalInfo: PersonalInfo = {
     { label: "LinkedIn", url: "https://www.linkedin.com/in/shahid-mirza-71ba56166", icon: "linkedin" },
     { label: "Medium", url: "https://medium.com/@methoomirza_89937", icon: "medium" },
     { label: "Substack", url: "https://substack.com/@shahidmirza2", icon: "substack" },
+    { label: "SaaSToolz", url: "https://www.saastoolz.com", icon: "globe" },
     { label: "Credly", url: "https://www.credly.com/users/muhammad-shahid-mirza/badges/credly", icon: "credly" },
     { label: "Facebook", url: "https://www.facebook.com/methoo.mirza/", icon: "facebook" },
     { label: "Instagram", url: "https://www.instagram.com/methoomirza/", icon: "instagram" },

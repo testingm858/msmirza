@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { navLinks } from "@/data/achievements";
 import { personalInfo } from "@/data/personal";
@@ -57,11 +58,23 @@ export function Navbar() {
             scrolled && "glass shadow-lg shadow-black/5"
           )}
         >
-          <a
-            href="#home"
-            className="font-display text-lg font-semibold tracking-tight text-foreground"
-          >
-            SM<span className="text-accent">.</span>
+          <a href="#home" className="flex items-center gap-2">
+            <Image
+              src="/images/logo-b.png"
+              alt={personalInfo.fullName}
+              width={36}
+              height={36}
+              priority
+              className="h-9 w-9 rounded-full dark:hidden"
+            />
+            <Image
+              src="/images/logo-w.png"
+              alt={personalInfo.fullName}
+              width={36}
+              height={36}
+              priority
+              className="hidden h-9 w-9 rounded-full dark:block"
+            />
           </a>
 
           <ul className="hidden items-center gap-1 lg:flex">

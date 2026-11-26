@@ -2,6 +2,20 @@ import type { Project, Service } from "@/types";
 
 export const projects: Project[] = [
   {
+    id: "saastoolz",
+    title: "SaaSToolz — Free Online Tools",
+    description:
+      "A live platform of 117 free online tools for PDF conversion, image editing, developer utilities, SEO, writing and calculators — no signup required. Designed, developed and owned by me.",
+    longDescription:
+      "SaaSToolz is a product I conceived, built and operate end to end — a growing library of browser-based utilities used by the public.",
+    tags: ["SaaS", "Web App", "Productivity"],
+    techStack: ["SaaS", "Web Tools", "SEO"],
+    image: "",
+    demoUrl: "https://www.saastoolz.com",
+    category: "Web Development",
+    featured: true,
+  },
+  {
     id: "production-dashboard",
     title: "Production Dashboard",
     description:

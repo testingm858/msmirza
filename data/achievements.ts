@@ -80,9 +80,6 @@ export const timelineItems: TimelineItem[] = [
 ];
 
 export const galleryItems: GalleryItem[] = [
-  { id: "g1", title: "ISO 9001:2015 Lead Auditor Badge", category: "Certificates", image: "", description: "IRCA-certified Lead Auditor credential for Quality Management Systems." },
-  { id: "g2", title: "ISO 45001:2018 Lead Auditor Badge", category: "Certificates", image: "", description: "IRCA-certified Lead Auditor credential for Occupational Health & Safety." },
-  { id: "g3", title: "Google Data Analytics Certificate", category: "Certificates", image: "", description: "8-course professional certificate covering the data analytics workflow." },
   { id: "g4", title: "Production Dashboard — Data View", category: "Data Visualization", image: "", description: "Screenshot placeholder for the Python production analytics dashboard." },
   { id: "g5", title: "Kaggle Notebook — Geospatial Analysis", category: "Data Visualization", image: "", description: "Screenshot placeholder for a Kaggle geospatial distance-calculation notebook." },
   { id: "g6", title: "Kaggle Notebook — EDA & Visualization", category: "Data Visualization", image: "", description: "Screenshot placeholder for an exploratory data analysis notebook." },
