@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { timelineItems } from "@/data/achievements";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { RevealGroup, revealItem } from "@/components/ui/reveal";
+import { revealItem } from "@/components/ui/reveal";
+import { ExpandableGrid } from "@/components/ui/expandable-grid";
 import { Icon } from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
 
@@ -24,15 +25,18 @@ export function Timeline() {
           subtitle="Career moves, credentials, and milestones — 2003 to today, in order."
         />
 
-        <RevealGroup
+        <ExpandableGrid
+          items={timelineItems}
+          rows={2}
+          columns={{ base: 1, sm: 2, lg: 3, xl: 4 }}
           className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-          stagger={0.06}
-        >
-          {timelineItems.map((item) => {
+          gapClass="mt-5"
+          getKey={(item) => item.id}
+          moreLabel="Show more milestones"
+          render={(item) => {
             const meta = categoryStyles[item.category];
             return (
               <motion.div
-                key={item.id}
                 variants={revealItem}
                 className={cn(
                   "glass h-full rounded-2xl border-t-2 p-6 transition-transform duration-300 hover:-translate-y-1",
@@ -57,8 +61,8 @@ export function Timeline() {
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{item.description}</p>
               </motion.div>
             );
-          })}
-        </RevealGroup>
+          }}
+        />
       </div>
     </section>
   );

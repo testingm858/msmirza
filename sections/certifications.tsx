@@ -11,6 +11,8 @@ import {
 } from "@/data/credentials";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Icon } from "@/components/ui/icon";
+import { ExpandableGrid } from "@/components/ui/expandable-grid";
+import { revealItem } from "@/components/ui/reveal";
 import { TryHackMeBadges } from "@/sections/tryhackme-badges";
 import { tryhackme, featuredBadges } from "@/data/tryhackme";
 import { cn } from "@/lib/utils";
@@ -19,7 +21,17 @@ type Filter = "all" | CredentialCategory;
 
 // Badges are artwork for certificates already in the vault, so they live in
 // their own shelf below it instead of duplicating cards in the main grid.
-const vault = credentials.filter((c) => c.category !== "badges");
+// Most recognisable credentials first, so the collapsed two rows lead with the strongest.
+const priority = ["irca-9001", "irca-45001", "mcs", "google-da", "iosh", "oshad", "tryhackme", "ibm-ds"];
+const rank = (id: string) => {
+  const i = priority.indexOf(id);
+  return i === -1 ? priority.length : i;
+};
+const vault = credentials
+  .filter((c) => c.category !== "badges")
+  .map((c, i) => ({ c, i }))
+  .sort((a, b) => rank(a.c.id) - rank(b.c.id) || a.i - b.i)
+  .map(({ c }) => c);
 const badges = credentials.filter((c) => c.category === "badges");
 // TryHackMe badges reuse the same modal as the other badges.
 const thmBadges: Credential[] = featuredBadges.map((b, i) => ({
@@ -111,13 +123,18 @@ export function Certifications() {
           ))}
         </div>
 
-        <motion.div layout className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence mode="popLayout">
-            {visible.map((c) => (
-              <CredentialCard key={c.id} credential={c} onOpen={() => setActiveId(c.id)} />
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        <ExpandableGrid
+          key={filter}
+          items={visible}
+          rows={2}
+          columns={{ base: 1, sm: 2, lg: 3 }}
+          className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
+          gapClass="mt-3"
+          stagger={0.04}
+          getKey={(c) => c.id}
+          moreLabel="Show more credentials"
+          render={(c) => <CredentialCard credential={c} onOpen={() => setActiveId(c.id)} />}
+        />
 
         {/* Digital badges shelf */}
         <div className="mt-16">
@@ -173,11 +190,7 @@ function CredentialCard({ credential: c, onOpen }: { credential: Credential; onO
   const art = c.kind === "badge" ? c.file : c.thumb;
   return (
     <motion.button
-      layout
-      initial={{ opacity: 0, scale: 0.96 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.96 }}
-      transition={{ duration: 0.2 }}
+      variants={revealItem}
       onClick={onOpen}
       className="group flex items-center gap-3.5 rounded-xl border border-card-border bg-card p-3.5 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40"
     >
@@ -326,6 +339,14 @@ function CredentialModal({
           <h3 className="mt-1 font-display text-xl font-semibold leading-snug text-foreground">{c.title}</h3>
           <p className="mt-1 text-sm text-muted-foreground">{c.issuer}</p>
           {c.summary && <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{c.summary}</p>}
+          {c.banner && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={c.banner}
+              alt={`${c.title} badge description`}
+              className="mt-4 w-full rounded-lg border border-border bg-white"
+            />
+          )}
 
           <dl className="mt-5 space-y-3 border-t border-border pt-4 text-xs">
             <div className="flex items-center gap-2.5 text-muted-foreground">

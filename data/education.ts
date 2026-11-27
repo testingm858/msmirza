@@ -12,6 +12,15 @@ export const education: Education[] = [
     icon: "graduation",
   },
   {
+    id: "bcs",
+    degree: "BCS — Bachelor of Computer Sciences",
+    institution: "Allama Iqbal Open University (AIOU)",
+    location: "Islamabad, Pakistan",
+    period: "Undergraduate",
+    description: "Undergraduate degree covering programming, systems and computer science fundamentals.",
+    icon: "university",
+  },
+  {
     id: "pgd",
     degree: "PGD — Post Graduate Diploma in Computer Sciences",
     institution: "Govt. MAO College Lahore",
@@ -20,15 +29,6 @@ export const education: Education[] = [
     description:
       "Postgraduate diploma deepening core computer science foundations ahead of the Master's program.",
     icon: "diploma",
-  },
-  {
-    id: "bcs",
-    degree: "BCS — Bachelor of Computer Sciences",
-    institution: "Allama Iqbal Open University (AIOU)",
-    location: "Islamabad, Pakistan",
-    period: "Undergraduate",
-    description: "Undergraduate degree covering programming, systems and computer science fundamentals.",
-    icon: "university",
   },
   {
     id: "inter",

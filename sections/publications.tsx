@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { publications } from "@/data/publications";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { RevealGroup, revealItem } from "@/components/ui/reveal";
+import { revealItem } from "@/components/ui/reveal";
+import { ExpandableGrid } from "@/components/ui/expandable-grid";
 import { GlowCard } from "@/components/ui/glow-card";
 import { Icon } from "@/components/ui/icon";
 
@@ -24,9 +25,16 @@ export function Publications() {
           subtitle="Notes on applied AI, data science, and the occasional QHSE dispatch — published on Medium, Substack, and Kaggle."
         />
 
-        <RevealGroup className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
-          {publications.map((pub) => (
-            <motion.div key={pub.id} variants={revealItem} className="h-full">
+        <ExpandableGrid
+          items={publications}
+          rows={2}
+          columns={{ base: 1, sm: 2, lg: 3 }}
+          className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          gapClass="mt-5"
+          getKey={(pub) => pub.id}
+          moreLabel="More articles"
+          render={(pub) => (
+            <motion.div variants={revealItem} className="h-full">
               <a href={pub.url} target="_blank" rel="noopener noreferrer" className="block h-full">
                 <GlowCard className="flex h-full flex-col">
                   <div className="flex items-center justify-between">
@@ -51,8 +59,8 @@ export function Publications() {
                 </GlowCard>
               </a>
             </motion.div>
-          ))}
-        </RevealGroup>
+          )}
+        />
       </div>
     </section>
   );

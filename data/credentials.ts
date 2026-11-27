@@ -17,6 +17,8 @@ export interface Credential {
   status?: "active" | "expired";
   /** One-line context shown in the modal. */
   summary?: string;
+  /** Wide badge description card shown in the modal details. */
+  banner?: string;
   /** Badge artwork shown as the card thumbnail. */
   thumb?: string;
 }
@@ -173,6 +175,7 @@ export const credentials: Credential[] = [
     file: `${base}/data/ibm-data-science-python.pdf`,
     kind: "pdf",
     verifyUrl: "https://www.credly.com/go/4z0EdVcy",
+    banner: `${base}/badges/ibm-python-data-science-card.png`,
     thumb: `${base}/badges/ibm-python-data-science.png`,
   },
   {
@@ -311,6 +314,7 @@ export const credentials: Credential[] = [
     file: `${base}/badges/ibm-python-data-science.png`,
     kind: "badge",
     verifyUrl: "https://www.credly.com/go/4z0EdVcy",
+    banner: `${base}/badges/ibm-python-data-science-card.png`,
   },
   {
     id: "badge-ibm-analysis",

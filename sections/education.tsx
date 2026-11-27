@@ -2,7 +2,8 @@
 
 import { education, trainings } from "@/data/education";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { Reveal, RevealGroup, revealItem } from "@/components/ui/reveal";
+import { Reveal, revealItem } from "@/components/ui/reveal";
+import { ExpandableGrid } from "@/components/ui/expandable-grid";
 import { Icon } from "@/components/ui/icon";
 import { motion } from "framer-motion";
 
@@ -16,10 +17,18 @@ export function Education() {
           subtitle="From matriculation to a Master's in Computer Sciences — the formal grounding behind two decades of technical and management-systems work."
         />
 
-        <RevealGroup className="grid grid-cols-1 gap-6 sm:grid-cols-2" stagger={0.08}>
-          {education.map((edu) => (
+        <ExpandableGrid
+          items={education}
+          rows={1}
+          columns={{ base: 1, sm: 2 }}
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2"
+          gapClass="mt-6"
+          stagger={0.08}
+          getKey={(edu) => edu.id}
+          moreLabel="Show earlier education"
+          lessLabel="Show less"
+          render={(edu) => (
             <motion.div
-              key={edu.id}
               variants={revealItem}
               className="group relative overflow-hidden rounded-2xl border border-card-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
             >
@@ -40,8 +49,8 @@ export function Education() {
               </div>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{edu.description}</p>
             </motion.div>
-          ))}
-        </RevealGroup>
+          )}
+        />
 
         <Reveal delay={0.15}>
           <div className="mt-14 rounded-2xl border border-card-border bg-card p-6">

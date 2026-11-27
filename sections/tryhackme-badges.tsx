@@ -34,7 +34,7 @@ export function TryHackMeBadges({
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 font-medium text-accent hover:underline"
         >
-          All {tryhackmeBadges.length} badges on TryHackMe
+          View all {tryhackmeBadges.length} badges
           <Icon name="external-link" className="h-3 w-3" />
         </a>
       </div>
