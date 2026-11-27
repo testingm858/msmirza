@@ -337,6 +337,18 @@ export const credentials: Credential[] = [
 
   // ── IT & security (no scans supplied yet) ──────────────────
   {
+    id: "tryhackme",
+    title: "TryHackMe — 4 Learning Paths",
+    issuer: "TryHackMe · Top 2% ranking",
+    category: "it",
+    date: "Since Aug 2023",
+    icon: "terminal",
+    verifyUrl: "https://tryhackme.com/p/methoomirza",
+    status: "active",
+    summary:
+      "Completed Jr Penetration Tester, Cyber Security 101, Web Fundamentals and Pre Security paths. 64-day best streak; hands-on with Nmap, Hydra, John the Ripper, Splunk and Linux.",
+  },
+  {
     id: "itil",
     title: "ITIL Foundation",
     issuer: "AXELOS",

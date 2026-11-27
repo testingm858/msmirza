@@ -75,6 +75,7 @@ export const timelineItems: TimelineItem[] = [
   { id: "t5", year: "2015", title: "MTA Networking, ITIL Foundation & CEH", description: "Built out a formal IT/security credential base alongside QHSE responsibilities.", category: "certification" },
   { id: "t6", year: "2018", title: "Dual IRCA Lead Auditor Certification", description: "Certified Lead Auditor in ISO 9001:2015 and ISO 45001:2018; led the IMS upgrade and integration.", category: "certification" },
   { id: "t7", year: "2022", title: "Google Data Analytics Professional Certificate", description: "Completed an 8-course program covering the modern data-analytics workflow.", category: "certification" },
+  { id: "t7b", year: "2023", title: "Hands-on Cybersecurity on TryHackMe", description: "Completed four learning paths and reached the Top 2% ranking with a 64-day best streak.", category: "achievement" },
   { id: "t8", year: "2024", title: "Kaggle 3x Expert", description: "Reached Expert tier across Notebooks and Datasets on Kaggle.", category: "achievement" },
   { id: "t9", year: "2026", title: "Active Writer on AI & Technology", description: "Publishing regularly on Medium and Substack on applied AI, alongside a full-time QHSE career.", category: "achievement" },
 ];

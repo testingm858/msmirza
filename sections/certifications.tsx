@@ -11,6 +11,8 @@ import {
 } from "@/data/credentials";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Icon } from "@/components/ui/icon";
+import { TryHackMeBadges } from "@/sections/tryhackme-badges";
+import { tryhackme, featuredBadges } from "@/data/tryhackme";
 import { cn } from "@/lib/utils";
 
 type Filter = "all" | CredentialCategory;
@@ -19,6 +21,18 @@ type Filter = "all" | CredentialCategory;
 // their own shelf below it instead of duplicating cards in the main grid.
 const vault = credentials.filter((c) => c.category !== "badges");
 const badges = credentials.filter((c) => c.category === "badges");
+// TryHackMe badges reuse the same modal as the other badges.
+const thmBadges: Credential[] = featuredBadges.map((b, i) => ({
+  id: `thm-${i}`,
+  title: b.name,
+  issuer: "TryHackMe",
+  category: "badges",
+  date: "TryHackMe profile badge",
+  icon: "terminal",
+  file: b.image,
+  kind: "badge",
+  verifyUrl: tryhackme.profileUrl,
+}));
 const vaultCategories = credentialCategories.filter((c) => c.id !== "badges");
 
 export function Certifications() {
@@ -30,7 +44,11 @@ export function Certifications() {
     [filter]
   );
   // Prev/next stays within whichever group the open item belongs to.
-  const group = badges.some((b) => b.id === activeId) ? badges : visible;
+  const group = badges.some((b) => b.id === activeId)
+    ? badges
+    : thmBadges.some((b) => b.id === activeId)
+      ? thmBadges
+      : visible;
   const activeIndex = group.findIndex((c) => c.id === activeId);
   const active = activeIndex >= 0 ? group[activeIndex] : null;
 
@@ -132,6 +150,8 @@ export function Certifications() {
             ))}
           </div>
         </div>
+
+        <TryHackMeBadges badges={thmBadges} onOpen={setActiveId} />
       </div>
 
       <AnimatePresence>
@@ -139,7 +159,7 @@ export function Certifications() {
           <CredentialModal
             key="modal"
             credential={active}
-            position={`${activeIndex + 1} / ${visible.length}`}
+            position={`${activeIndex + 1} / ${group.length}`}
             onClose={() => setActiveId(null)}
             onStep={step}
           />
@@ -263,6 +283,7 @@ function CredentialModal({
               <img
                 src={c.file}
                 alt={c.title}
+                referrerPolicy="no-referrer"
                 className="absolute left-1/2 top-1/2 w-[68%] -translate-x-1/2 -translate-y-1/2 object-contain drop-shadow-[0_18px_40px_rgba(0,0,0,0.35)]"
               />
             </>
@@ -343,7 +364,7 @@ function CredentialModal({
                 Open full size
               </a>
             )}
-            {c.file && (
+            {c.file && !c.file.startsWith("http") && (
               <a
                 href={c.file}
                 download
